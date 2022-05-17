@@ -1,0 +1,12 @@
+<div>
+  <h3>{{title}}</h3>
+  <p *ngIf="message">{{message}}; {{bidule}}</p>
+  <p>Compteur : {{counter}}</p>
+  <button (click)="incrementCounter()">
+    {{action}}
+  </button>
+  <button (click)="sendMessage()">
+    Send Message
+  </button>
+  <hr>
+</div>

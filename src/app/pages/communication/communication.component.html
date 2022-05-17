@@ -1,0 +1,21 @@
+<h1>Communication entre composants</h1>
+
+<h2>Input : communication du parent vers l'enfant</h2>
+<app-enfant
+  title="Compteur 1"
+  message="Coucou"
+  action="Increment"
+  machin="Hey !"
+></app-enfant>
+<app-enfant
+  [title]="compteurTitle"
+  [message]="compteurMessage"
+></app-enfant>
+<app-enfant title="Pas d'idée" ></app-enfant>
+
+<h2>Output</h2>
+
+<app-enfant
+  title="Handle Message"
+  (emitMessage)="handleMessage($event)"
+></app-enfant>
