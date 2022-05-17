@@ -1,0 +1,13 @@
+<div class="card">
+  <h3>{{formation.title}}</h3>
+  <p>{{formation.description}}</p>
+  <div class="tabs">
+    <span>{{formation.duration}}h</span>
+    <span>{{formation.price}}€</span>
+  </div>
+
+  <div class="footer">
+    <button (click)="modify()">Modifier</button>
+    <button (click)="delete()">Supprimer</button>
+  </div>
+</div>

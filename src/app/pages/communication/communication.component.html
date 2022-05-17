@@ -19,3 +19,17 @@
   title="Handle Message"
   (emitMessage)="handleMessage($event)"
 ></app-enfant>
+
+
+<h2>Formations</h2>
+
+<div>
+    <app-card
+      *ngFor="let f of formations; index as i"
+      [formation]="f"
+      [index]="i"
+      (emitDelete)="deleteFormation($event)"
+      (emitModify)="modifyFormation($event)"
+    >
+    </app-card>
+</div>

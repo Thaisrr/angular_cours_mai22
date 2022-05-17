@@ -1,0 +1,54 @@
+<h1>Les Pipes</h1>
+
+<p>Les pipes sont un moyen de modifier une valeur passée dans les balises moustaches du template.</p>
+
+
+<h2>Texte</h2>
+
+<p>Mon titre : {{ title }}</p>
+<p>Majuscules : {{ title | uppercase }}</p>
+<p>Minuscules : {{ title | lowercase}}</p>
+<p>Titre : {{ title | titlecase }}</p>
+
+
+<h2>Nombres </h2>
+
+<p>Pi : {{PI}}</p>
+<p>PI  number : {{ PI | number}}</p>
+<!--
+  Paramétres :
+  - nombre mini de chiffres avant la virgule
+  - nombre mini de chiffre APRES la virgule
+  - nombre maximum de chiffres APRES la virgule
+-->
+<p>{{ PI | number : '1.1-1' }}</p>
+<p>{{ PI | number : '2.1-1' }}</p>
+<p>{{ PI | number : '1.5-5' }}</p> <!-- exactement 5 chiffres après la virgule -->
+<p>{{PI | number: '1.0-1'}}</p>
+
+
+
+<h2>Dates</h2>
+<p>Non formatée : {{today}}</p>
+<p>Date : {{today | date}} </p>
+<!-- Mots clefs -->
+<p>Short : {{today | date : 'short'}}</p>
+<p>Medium : {{today | date : 'medium'}}</p>
+<p>Long : {{today | date : 'long'}}</p>
+<!-- Heures -->
+<p>Heure US : {{ today | date: 'h:mm:ss a' }}</p> <!-- heure de 0 à 12 -->
+<p>Heure EU : {{ today | date: 'H:mm:ss' }}</p> <!-- heure de 0 à 23 -->
+<p>Heure EU : {{ today | date: 'HH:mm' }}</p> <!-- heure de 00 à 23 -->
+
+<!-- Date -->
+<p>Mois ( 1 -> 12 ) {{ today | date : 'M'}}</p>
+<p>Mois ( 01 -> 12 ) {{ today | date : 'MM'}}</p>
+<p>Mois ( abbr ) {{ today | date : 'MMM'}}</p>
+<p>Mois (complet) {{today | date: 'MMMM'}}</p>
+<p>Jours : (mois) {{ today | date: 'd'}}</p>
+<p>Jours : (mois) {{ today | date: 'dd'}}</p>
+<p>Jours : (mois) {{ today | date: 'ddd'}}</p>
+
+
+
+<p>{{title | rainbow | titlecase}}</p>

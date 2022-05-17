@@ -1,0 +1,19 @@
+<h1>Formulaires Réactifs</h1>
+
+<fieldset>
+  <legend>Favorite Book</legend>
+
+  <form (ngSubmit)="submitTitle()">
+
+    <label for="title">Titre</label>
+    <input [formControl]="bookTitleControl" id="title">
+    <button type="submit">Save</button>
+
+  </form>
+</fieldset>
+
+<div *ngIf="favoriteBook">
+  <h3>Livre préféré : </h3>
+  <p>{{favoriteBook}}</p>
+  <p>{{bookTitleControl.value}}</p>
+</div>

@@ -9,6 +9,11 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { CommunicationComponent } from './pages/communication/communication.component';
 import { CardComponent } from './components/card/card.component';
+import { PipesComponent } from './pages/pipes/pipes.component';
+import { RainbowPipe } from './utils/pipes/rainbow.pipe';
+import { FormulairesComponent } from './pages/formulaires/formulaires.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormulairesReactifsComponent } from './pages/formulaires-reactifs/formulaires-reactifs.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +23,17 @@ import { CardComponent } from './components/card/card.component';
     NavigationComponent,
     PageNotFoundComponent,
     CommunicationComponent,
-    CardComponent
+    CardComponent,
+    PipesComponent,
+    RainbowPipe,
+    FormulairesComponent,
+    FormulairesReactifsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
