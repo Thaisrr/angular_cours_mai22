@@ -6,8 +6,18 @@
   <form (ngSubmit)="submitTitle()">
 
     <label for="title">Titre</label>
-    <input [formControl]="bookTitleControl" id="title">
+    <input [formControl]="bookTitleControl"
+           id="title"
+           placeholder="Exemple: Dracula"
+    >
     <button type="submit">Save</button>
+
+    <p style="color: red"
+       *ngIf="bookTitleControl.invalid && bookTitleControl.touched"
+    >
+      <span *ngIf="bookTitleControl.hasError('required')">Ce champs est obligatoire</span>
+      <span *ngIf="bookTitleControl.hasError('minlength')">Le nom saisi est trop court</span>
+    </p>
 
   </form>
 </fieldset>
@@ -17,3 +27,46 @@
   <p>{{favoriteBook}}</p>
   <p>{{bookTitleControl.value}}</p>
 </div>
+
+
+<h2>Formulaire complexe :</h2>
+
+<form [formGroup]="serieControl" (ngSubmit)="submitSerie()">
+  <div>
+    <label for="stitle">Titre</label>
+    <input formControlName="title" id="stitle">
+  </div>
+  <p style="color: red;" *ngIf="serieControl.controls['title'].invalid &&
+  serieControl.controls['title'].touched">
+    Ce champs est invalide
+  </p>
+  <div>
+    <label for="sdesc">Description</label>
+    <textarea formControlName="description" id="sdesc"></textarea>
+  </div>
+  <div>
+    <label for="sseason">Saisons</label>
+    <input formControlName="seasons" id="sseason" type="number">
+  </div>
+  <div>
+    <label for="sfinished">Terminée ?</label>
+    <input formControlName="isFinished" type="checkbox" id="sfinished">
+  </div>
+
+  <fieldset formGroupName="author">
+    <legend>Author</legend>
+
+    <div>
+      <label for="studio">Studio</label>
+      <input id="studio" formControlName="studio">
+    </div>
+    <div>
+      <label for="director">Director</label>
+      <input id="director" formControlName="director">
+    </div>
+  </fieldset>
+
+  <button type="submit">Save</button>
+
+</form>
+
