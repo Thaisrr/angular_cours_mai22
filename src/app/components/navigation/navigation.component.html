@@ -1,3 +1,9 @@
+<p>
+  {{isLogged? 'Vous êtes connecté⋅e' : 'Veuillez vous connecter'}}
+</p>
+<p *ngIf="isLogged">
+  <button (click)="logout()">Logout</button>
+</p>
 <nav>
   <ul>
     <li>
@@ -17,6 +23,24 @@
     </li>
     <li>
       <a [routerLink]="'/reactive-form'">Forms Reactifs</a>
+    </li>
+    <li>
+      <a [routerLink]="'/observables'">Observables</a>
+    </li>
+    <li>
+      <a [routerLink]="'/lifecycle'">Cycle de Vie</a>
+    </li>
+    <li>
+      <a [routerLink]="'/http'">HTTP</a>
+    </li>
+    <li>
+      <a [routerLink]="'/observables-bis'">Observables Bis</a>
+    </li>
+    <li *ngIf="!isLogged">
+      <a [routerLink]="'/login'">Login</a>
+    </li>
+    <li *ngIf="isLogged">
+      <a [routerLink]="'/secret'">Secret</a>
     </li>
   </ul>
 </nav>

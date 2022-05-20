@@ -1,0 +1,33 @@
+<h1>Http Requests</h1>
+
+<p *ngIf="!joke; else jokeTemplate">Chargement...</p>
+
+<ng-template #jokeTemplate>
+  <pre>{{joke}}</pre>
+</ng-template>
+
+
+<h2>Posts</h2>
+
+<form [formGroup]="postGroup" (ngSubmit)="createPost()">
+  <p>
+    <label>Texte :</label>
+    <input formControlName="text">
+    <button type="submit">Save</button>
+  </p>
+</form>
+
+<div style="display: grid; gap: 30px; grid-template-columns: repeat(3, 1fr)">
+
+  <div *ngFor="let p of posts"
+       style="box-shadow: 2px 2px 8px darkgrey; padding: 20px; border-radius: 10px"
+  >
+    {{p.text}}
+
+    <p>
+      <button (click)="delete(p.id)">Supprimer</button>
+      <a [routerLink]="'/details/' + p.id">Détails</a>
+    </p>
+  </div>
+
+</div>
